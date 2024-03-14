@@ -27,12 +27,14 @@
 
     <title>{% block title %}{% endblock title %}</title>
 
-    <meta name="author" content="">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <link rel="canonical" href="current page url">
+    <meta name="author" content="{% block author %}{% endblock author %}">
+    <meta name="description" content="{% block description %}{% endblock description %}">
+    <meta name="keywords" content="{% block keywords %}{% endblock keywords %}">
+    <link rel="canonical" href="{{ request.url }}">
 
-    <link rel="preload stylesheet" crossorigin="anonymous" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- CSS -->
+    <link rel="stylesheet" crossorigin="anonymous" type="text/css"
+        href="{{ url_for('static', filename='css/styles.css') }}">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180"
@@ -48,17 +50,17 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Twitter -->
-    <meta name="twitter:title" content="">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="{% block twtitle %}{% endblock twtitle %}">
+    <meta name="twitter:description" content="{% block twdescription %}{% endblock twdescription %}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://adityatelange.github.io/hugo-PaperMod/images/papermod-cover.png">
+    <meta name="twitter:image" content="{{ url_for('static', filename='assets/img/desk_beach.png') }}">
 
     <!-- Opengraph -->
     <meta property="og:type" content="website gia to index, article gia to article">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:url" content="current page url">
-    <meta property="og:image" content="https://adityatelange.github.io/hugo-PaperMod/images/papermod-cover.png">
+    <meta property="og:title" content="{% block ogtitle %}{% endblock ogtitle %}">
+    <meta property="og:description" content="{% block ogdescription %}{% endblock ogdescription %}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:image" content="{{ url_for('static', filename='assets/img/desk_beach.png') }}">
 
     <!-- Schema Markup Generator (JSON-LD) DIAFORETIKO GIA KATHE SELIDA-->
 
@@ -107,8 +109,7 @@
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="https://adityatelange.github.io/hugo-PaperMod" accesskey="h"
-                    title="PaperMod (Alt + H)">PaperMod</a>
+                <a href="{{ url_for('views.home') }}" accesskey="h" title="Alex Kanavos (Alt + H)">Alex Kanavos</a>
                 <div class="logo-switches">
                     <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                         <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -130,52 +131,45 @@
                             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
                     </button>
-                    <ul class="lang-switch">
+                    <!-- <ul class="lang-switch">
                         <li>|</li>
                         <li>
                             <a href="https://adityatelange.github.io/hugo-PaperMod/fr/" title="French"
-                                aria-label=":fr:">🇫🇷</a>
+                                aria-label=":fr:">Fr</a>
                         </li>
                         <li>
                             <a href="https://adityatelange.github.io/hugo-PaperMod/fa/" title="Fa"
                                 aria-label="Fa">Fa</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
             <ul id="menu">
                 <li>
-                    <a href="https://adityatelange.github.io/hugo-PaperMod/archives" title="Archive">
-                        <span>Archive</span>
+                    <a href="{{ url_for('views.about') }}" title="About">
+                        <span>About</span>
                     </a>
                 </li>
-                <li>
-                    <a href="https://adityatelange.github.io/hugo-PaperMod/search/" title="Search (Alt + /)"
+                <!-- <li>
+                    <a href="" title="Search (Alt + /)"
                         accesskey="/">
                         <span>Search</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
-                    <a href="https://adityatelange.github.io/hugo-PaperMod/tags/" title="Tags">
-                        <span>Tags</span>
+                    <a href="{{ url_for('views.projects') }}" title="Projects">
+                        <span>Projects</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://github.com/adityatelange/hugo-PaperMod/wiki/" title="WiKi">
-                        <span>WiKi</span>&nbsp;
-                        <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24"
-                            height="12" width="12">
-                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                            <path d="M15 3h6v6"></path>
-                            <path d="M10 14L21 3"></path>
-                        </svg>
+                    <a href="{{ url_for('views.contact') }}" title="Contact">
+                        <span>Contact</span>
                     </a>
                 </li>
+
             </ul>
         </nav>
     </header>
-
 
     <main class="main">
 
@@ -199,6 +193,8 @@
         </svg>
     </a>
 
+    <script crossorigin="anonymous" type="text/javascript"
+        src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 
 </html>

@@ -6,7 +6,14 @@ views = Blueprint("views", __name__)
 
 @views.route("/")
 def home():
-    return render_template("index.html")
+
+    data_dict = {
+        "title": "Alex Kanavos",
+        "author": "Alex Kanavos",
+        "description": "Portfolio",
+    }
+
+    return render_template("index.html", data=data_dict)
 
 
 @views.route("/about")
