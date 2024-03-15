@@ -28,16 +28,6 @@ def about():
     return render_template("about.html", data=data_dict)
 
 
-@views.route("/projects")
-def projects():
-    return render_template("projects.html")
-
-
-@views.route("/contact")
-def contact():
-    return render_template("contact.html")
-
-
 @views.app_errorhandler(404)
 def page_not_found(e):
     return render_template("404.html"), 404
