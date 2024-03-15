@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ data.title }}{% endblock title %}
+
+{% block author %}{{ data.author }}{% endblock author %}
+{% block description %}{{ data.description }}{% endblock description %}
+{% block keywords %}{% endblock keywords %}
+
+{% block twtitle %}{{ data.title }}{% endblock twtitle %}
+{% block twdescription %}{{ data.description }}{% endblock twdescription %}
+
+{% block ogtitle %}{{ data.title }}{% endblock ogtitle %}
+{% block ogdescription %}{{ data.description }}{% endblock ogdescription %}
+
+{% block content %}
+
+<article class="post-single">
+    <header class="post-header">
+        <div class="breadcrumbs"><a href="{{ url_for('views.home') }}">Home</a>&nbsp;»&nbsp;<a
+                href="{{ url_for('views.about') }}">About</a></div>
+        <h1 class="post-title entry-hint-parent">
+            About
+        </h1>
+    </header>
+    <figure class="entry-cover">
+        <img loading="eager" sizes="(min-width: 768px) 720px, 100vw"
+            src="{{ url_for('static', filename='assets/img/desk_beach.png') }}" alt="Desk beach" width="1200"
+            height="628">
+
+    </figure>
+
+</article>
+
+{% endblock content %}

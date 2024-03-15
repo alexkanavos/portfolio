@@ -18,7 +18,14 @@ def home():
 
 @views.route("/about")
 def about():
-    return render_template("about.html")
+
+    data_dict = {
+        "title": "About | Alex Kanavos",
+        "author": "Alex Kanavos",
+        "description": "About | Alex Kanavos",
+    }
+
+    return render_template("about.html", data=data_dict)
 
 
 @views.route("/projects")
