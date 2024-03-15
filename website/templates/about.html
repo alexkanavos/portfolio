@@ -17,16 +17,31 @@
 <article class="post-single">
     <header class="post-header">
         <div class="breadcrumbs"><a href="{{ url_for('views.home') }}">Home</a>&nbsp;»&nbsp;<a
-                href="{{ url_for('views.about') }}">About</a></div>
+                href="{{ url_for('views.about') }}/">About</a></div>
         <h1 class="post-title entry-hint-parent">
             About
         </h1>
     </header>
-    <figure class="entry-cover">
-        <img loading="eager" sizes="(min-width: 768px) 720px, 100vw"
-            src="{{ url_for('static', filename='assets/img/desk_beach.png') }}" alt="Desk beach" width="1200"
-            height="628">
-    </figure>
+    <div class="post-content">
+        <p>I'm Alex, originally from Athens and currently living in Berlin. Although I have an engineering background
+            and
+            hold a Diploma in Civil Engineering, I have shifted my focus towards software development. Inspired by the
+            vibrant tech scene in Berlin, I've delved into programming, totally loving the problem-solving and
+            creativity it
+            brings to the table.</p>
+        <p>Apart from my portfolio, this is a place where I plan to showcase my adventures in software development and
+            data
+            science. That said, as I build and upgrade this platform I will probably add some blogging functionality to
+            it
+            as well. So until then, stay tuned.</p>
+        Cheerio!
+        <hr>
+        <h2 id="contact-about">Wanna get in touch?<a hidden="" class="anchor" aria-hidden="true"
+                href="#contact-about">#</a></h2>
+        <p>Drop me an email: <a href="mailto:alex@alexkanavos.com" target="_blank">alex [at] alexkanavos [dot] com</a>
+        </p>
+    </div>
+
 </article>
 
 {% endblock content %}
